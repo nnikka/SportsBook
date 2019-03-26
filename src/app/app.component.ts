@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   treeData: TreeData = null;
   oddsLayout: OddsLayout = null;
   matches: Match[] = null;
-  matchesNotFound: boolean = false;
 
   constructor(
     private sportsbookTree: SportsbookTreeService,
@@ -36,11 +35,9 @@ export class AppComponent implements OnInit {
     this.matchesService.getMatches(e).subscribe(
       matches => {
         this.matches = matches
-        this.matchesNotFound = false
       },
       err => {
         this.matches = null
-        this.matchesNotFound = true
       }
     );
   }

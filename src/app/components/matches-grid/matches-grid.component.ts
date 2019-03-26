@@ -12,7 +12,6 @@ export class MatchesGridComponent {
 
   @Input() oddsLayout: OddsLayout;
   @Input() matches: Match[];
-  @Input() matchesNotFound: boolean;
 
   get headerParams() {
     return this.oddsLayout ? this.gridService.createMatchesGridHeaderParams(this.oddsLayout) : []
