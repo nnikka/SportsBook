@@ -1,0 +1,21 @@
+<div>
+  <ul>
+    <li (click)="onItemClick()" [className]="showChildNodes ? 'tree-node-li opened' : 'tree-node-li'">
+      {{ treeNode.name }}
+      <span class="node-total">
+        {{ treeNode.total }}
+      </span>
+    </li>
+    <div
+      *ngIf="!isLeaf()"
+      [className]="showChildNodes ? 'expandable expanded' : 'expandable'"
+    >
+      <ul *ngFor="let node of treeNode.nodes">
+        <app-tree-node
+          [treeNode]="node"
+          (clickOnLeaf)="catchItemClick($event)"
+        ></app-tree-node>
+      </ul>
+    </div>
+  </ul>
+</div>

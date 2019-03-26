@@ -1,0 +1,8 @@
+<div class="tree-container">
+  <div *ngFor="let node of data">
+    <app-tree-node
+      [treeNode]="node"
+      (clickOnLeaf)="catchId($event)"
+    ></app-tree-node>
+  </div>
+</div>

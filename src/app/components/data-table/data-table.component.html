@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th
+      *ngFor="let headerParam of header.headerParams"
+      [title]="headerParam.title ? headerParam.title : ''"
+    >
+      {{ headerParam.name }}
+    </th>
+  </tr>
+  <tr *ngIf="!body; else tableBody" class="table-body-info-txt">
+    <div class="table-body-info-txt">
+      No data
+    </div>
+  </tr>
+  <ng-template #tableBody>
+    <tr *ngFor="let row of body.bodyParams">
+      <td *ngFor="let item of row">
+        <span *ngIf="item">{{ item.value }}</span>
+      </td>
+    </tr>
+  </ng-template>
+</table>
